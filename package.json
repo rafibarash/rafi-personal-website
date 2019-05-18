@@ -1,0 +1,23 @@
+{
+  "name": "rafi-barash-website",
+  "version": "3.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "next",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "next",
+    "gatsby": "latest",
+    "gatsby-plugin-material-ui": "next",
+    "gatsby-plugin-react-helmet": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-helmet": "latest",
+    "react-scroll": "^1.7.11"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  }
+}
