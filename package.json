@@ -9,6 +9,7 @@
     "classnames": "^2.2.6",
     "gatsby": "latest",
     "gatsby-plugin-material-ui": "next",
+    "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cms": "^4.0.1",
     "gatsby-plugin-react-helmet": "latest",
     "netlify-cms-app": "^2.9.1",

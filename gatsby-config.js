@@ -1,19 +1,10 @@
 module.exports = {
   plugins: [
     "gatsby-plugin-top-layout",
-    "gatsby-plugin-netlify-cms",
-    {
-      resolve: "gatsby-plugin-material-ui",
-      // If you want to use styled components you should change the injection order.
-      options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
-      },
-    },
-    // If you want to use styled components you should add the plugin here.
-    // 'gatsby-plugin-styled-components',
+    "gatsby-plugin-material-ui",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-netlify-cms",
+    "gatsby-plugin-netlify", // supposed to be last
   ],
   siteMetadata: {
     title: "My page",
