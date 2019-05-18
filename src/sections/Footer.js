@@ -1,18 +1,33 @@
 import React from "react";
-import { makeStyles } from "@material-ui/styles";
-import { Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/styles";
+import { Typography, Box, Link } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  root: {},
-});
+const styles = {};
 
-const Footer = props => {
-  const classes = useStyles();
+const Footer = ({ classes }) => {
   return (
-    <div>
-      <Typography variant="body1">Hi I'm the footer</Typography>
-    </div>
+    <Box py={10} textAlign="center">
+      <Typography paragraph>Built by Rafi Barash</Typography>
+      <Typography variant="body1">
+        Currently on version 3 of my website &middot;{" "}
+        <Link
+          href="https://rafibarash.github.io/v2"
+          target="_blank"
+          rel="noopener"
+        >
+          v2
+        </Link>{" "}
+        &middot;{" "}
+        <Link
+          href="https://rafibarash.github.io/v1"
+          target="_blank"
+          rel="noopener"
+        >
+          v1
+        </Link>
+      </Typography>
+    </Box>
   );
 };
 
-export default Footer;
+export default withStyles(styles)(Footer);

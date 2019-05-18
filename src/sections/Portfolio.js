@@ -1,31 +1,34 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { withStyles } from "@material-ui/styles";
 import { useTheme } from "@material-ui/styles";
+import { Element } from "react-scroll";
 
 // My Components
 import Section from "../components/Section";
 import SectionTitle from "../components/SectionTitle";
 
-const useStyles = makeStyles({
+const styles = {
   root: {},
-});
+};
 
 const Portfolio = props => {
-  const classes = useStyles();
+  const { classes } = props;
   const theme = useTheme();
   return (
-    <Section
-      bgColor={theme.palette.background.default}
-      maxWidth="md"
-      // color="black"
-    >
-      <SectionTitle color="inherit">Portfolio</SectionTitle>
-      <Typography paragraph color="inherit">
-        My Portfolio
-      </Typography>
-    </Section>
+    <Element name="portfolio">
+      <Section
+        bgColor={theme.palette.background.default}
+        maxWidth="md"
+        // color="black"
+      >
+        <SectionTitle color="inherit">Portfolio</SectionTitle>
+        <Typography paragraph color="inherit">
+          My Portfolio
+        </Typography>
+      </Section>
+    </Element>
   );
 };
 
-export default Portfolio;
+export default withStyles(styles)(Portfolio);

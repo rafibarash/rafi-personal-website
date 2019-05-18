@@ -6,6 +6,7 @@
     "@material-ui/core": "next",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "next",
+    "classnames": "^2.2.6",
     "gatsby": "latest",
     "gatsby-plugin-material-ui": "next",
     "gatsby-plugin-react-helmet": "latest",
