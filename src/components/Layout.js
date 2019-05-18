@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
 
+import ScrollToTop from "./ScrollToTop";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
@@ -15,6 +16,7 @@ const Layout = props => {
       <Header />
       {children}
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

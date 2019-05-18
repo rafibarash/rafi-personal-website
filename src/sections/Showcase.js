@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Container, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
-import { Link } from "react-scroll";
+import { Link, Element } from "react-scroll";
 
 // My Components
 import Button from "../components/Button";
@@ -36,7 +36,7 @@ const WelcomeText = ({ classes }) => (
 const Showcase = props => {
   const { classes } = props;
   return (
-    <div className={classes.root}>
+    <Element name="showcase" className={classes.root}>
       <Box className={classes.box}>
         <Container maxWidth="md">
           <WelcomeText classes={classes} />
@@ -54,7 +54,7 @@ const Showcase = props => {
           </Button>
         </Container>
       </Box>
-    </div>
+    </Element>
   );
 };
 
