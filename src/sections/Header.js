@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { withStyles } from "@material-ui/styles";
-import {
-  Typography,
-  Button,
-  List,
-  ListItem,
-  Drawer,
-  IconButton,
-  Fab,
-} from "@material-ui/core";
+import { List, ListItem, Drawer, Fab } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const styles = {

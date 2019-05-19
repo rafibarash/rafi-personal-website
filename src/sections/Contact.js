@@ -62,7 +62,7 @@ const styles = theme => ({
   },
   icon: {
     marginRight: "10px",
-    // fontSize: "20px",
+    fontSize: "20px",
   },
   message: {
     display: "flex",

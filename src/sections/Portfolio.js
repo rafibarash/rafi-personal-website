@@ -8,20 +8,14 @@ import { Element } from "react-scroll";
 import Section from "../components/Section";
 import SectionTitle from "../components/SectionTitle";
 
-const styles = {
-  root: {},
-};
+const styles = {};
 
 const Portfolio = props => {
-  const { classes } = props;
+  // const { classes } = props;
   const theme = useTheme();
   return (
     <Element name="portfolio">
-      <Section
-        bgColor={theme.palette.background.default}
-        maxWidth="md"
-        // color="black"
-      >
+      <Section bgColor={theme.palette.background.default} maxWidth="md">
         <SectionTitle color="inherit">Portfolio</SectionTitle>
         <Typography paragraph color="inherit">
           My Portfolio

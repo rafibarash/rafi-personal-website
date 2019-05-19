@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Icon } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import { useTheme } from "@material-ui/styles";
 import { Element, Link } from "react-scroll";

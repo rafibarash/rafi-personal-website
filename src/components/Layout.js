@@ -10,7 +10,7 @@ const styles = {
 };
 
 const Layout = props => {
-  const { children, classes } = props;
+  const { children } = props;
   return (
     <div>
       <Header />
