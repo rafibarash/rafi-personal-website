@@ -25,7 +25,13 @@ let theme = createMuiTheme({
     htmlFontSize: 10,
     fontSize: 10,
   },
-  overrides: {},
+  overrides: {
+    MuiContainer: {
+      maxWidthMd: {
+        maxWidth: "800px!important",
+      },
+    },
+  },
 });
 
 export default responsiveFontSizes(theme);

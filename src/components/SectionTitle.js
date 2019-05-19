@@ -10,13 +10,13 @@ const styles = {
 };
 
 const SectionTitle = props => {
-  const { children, classes } = props;
+  const { children, classes, color } = props;
   return (
     <Typography
       variant="h4"
       component="h1"
+      color={color}
       className={classes.title}
-      {...props}
     >
       {children}
     </Typography>
