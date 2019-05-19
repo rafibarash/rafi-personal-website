@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { withStyles, useTheme } from '@material-ui/styles';
-
 import {
   Avatar,
   Button,
@@ -236,6 +236,18 @@ const ContactForm = (props) => {
 
 const Contact = ({ classes }) => {
   const theme = useTheme();
+  const data = useStaticQuery(
+    graphql`
+      query {
+        markdownRemark(frontmatter: { sectionKey: { eq: "contact-section" } }) {
+          frontmatter {
+            description
+          }
+        }
+      }
+    `,
+  );
+  const { description } = data.markdownRemark.frontmatter;
   return (
     <Section
       bgColor={theme.palette.background.secondary}
@@ -245,9 +257,7 @@ const Contact = ({ classes }) => {
     >
       <SectionTitle color="inherit">Contact Rafi Barash</SectionTitle>
       <Typography paragraph color="inherit" className={classes.intro}>
-        Hey there – thanks for checking out my website! If you want to talk
-        about work, or just want to say hi, fill out this contact form and I’ll
-        get in touch with you as soon as I can.
+        {description}
       </Typography>
       <ContactForm classes={classes} />
     </Section>

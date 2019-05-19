@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Typography, Box } from '@material-ui/core';
 import { withStyles, useTheme } from '@material-ui/styles';
 
@@ -60,6 +61,18 @@ const SocialMedia = ({ classes }) => (
 
 const About = ({ classes }) => {
   const theme = useTheme();
+  const data = useStaticQuery(
+    graphql`
+      query {
+        markdownRemark(frontmatter: { sectionKey: { eq: "about-section" } }) {
+          frontmatter {
+            description
+          }
+        }
+      }
+    `,
+  );
+  const { description } = data.markdownRemark.frontmatter;
   return (
     <Section
       bgColor={theme.palette.background.primary}
@@ -69,12 +82,7 @@ const About = ({ classes }) => {
     >
       <SectionTitle color="inherit">About</SectionTitle>
       <Typography paragraph color="inherit">
-        My name is Rafi Barash and I'm a Junior majoring in Computer Science at
-        the University of Minnesota, with a specialization in AI and Big Data.
-        I'm passionate about machine learning and big data analytics, as well as
-        full-stack web development. Minnesota Club Tennis and slack-lining are
-        also pretty cool. This summer I will complete a software engineering
-        internship at Google.
+        {description}
       </Typography>
       <SocialMedia classes={classes} />
       <Button

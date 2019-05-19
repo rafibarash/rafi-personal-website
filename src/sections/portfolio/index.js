@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { Typography } from '@material-ui/core';
 import { withStyles, useTheme } from '@material-ui/styles';
 
@@ -8,8 +9,28 @@ import SectionTitle from '../../components/SectionTitle';
 
 const styles = {};
 
-const Portfolio = () => {
+const PortfolioSection = () => {
   const theme = useTheme();
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allMarkdownRemark(
+          filter: { frontmatter: { title: { ne: "" }, image: { ne: "" } } }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                title
+                description
+                image
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+  const { edges: portfolios } = data.allMarkdownRemark;
   return (
     <Section
       bgColor={theme.palette.background.default}
@@ -22,4 +43,4 @@ const Portfolio = () => {
   );
 };
 
-export default withStyles(styles)(Portfolio);
+export default withStyles(styles)(PortfolioSection);
