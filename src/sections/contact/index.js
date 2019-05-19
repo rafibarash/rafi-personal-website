@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { withStyles } from "@material-ui/styles";
-import { useTheme } from "@material-ui/styles";
+import React, { useState } from 'react';
+import { withStyles, useTheme } from '@material-ui/styles';
+
 import {
   Avatar,
   Button,
@@ -11,37 +11,37 @@ import {
   Typography,
   Snackbar,
   SnackbarContent,
-} from "@material-ui/core";
-import EmailIcon from "@material-ui/icons/Email";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import ErrorIcon from "@material-ui/icons/Error";
+} from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import ErrorIcon from '@material-ui/icons/Error';
 
 // My Components
-import Section from "../components/Section";
-import SectionTitle from "../components/SectionTitle";
+import Section from '../../components/Section';
+import SectionTitle from '../../components/SectionTitle';
 
 const styles = theme => ({
   intro: {
-    paddingBottom: "25px",
+    paddingBottom: '25px',
   },
   main: {
-    width: "auto",
-    display: "block", // Fix IE 11 issue.
+    width: 'auto',
+    display: 'block', // Fix IE 11 issue.
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
     [theme.breakpoints.up(400 + theme.spacing(6))]: {
       width: 400,
-      marginLeft: "auto",
-      marginRight: "auto",
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
   },
   paper: {
     marginBottom: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(
-      3
+      3,
     )}px`,
   },
   avatar: {
@@ -49,7 +49,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.primary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
   },
   submit: {
     marginTop: theme.spacing(3),
@@ -61,12 +61,12 @@ const styles = theme => ({
     backgroundColor: theme.palette.error.main,
   },
   icon: {
-    marginRight: "10px",
-    fontSize: "20px",
+    marginRight: '10px',
+    fontSize: '20px',
   },
   message: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
 });
 
@@ -75,44 +75,42 @@ const variantIcon = {
   error: ErrorIcon,
 };
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+const encode = data => Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
 
-const ContactForm = props => {
+const ContactForm = (props) => {
   const { classes } = props;
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(true);
 
-  const handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  const handleSubmit = (e) => {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
-        "form-name": "contact",
-        ...{ name: name, email: email, message: message },
+        'form-name': 'contact',
+        ...{ name, email, message },
       }),
     })
       .then(() => {
         setSuccess(true);
         setOpen(true);
       })
-      .catch(error => {
+      .catch((error) => {
         setSuccess(false);
         setOpen(true);
         console.log(error);
       });
 
     e.preventDefault();
-    setName("");
-    setEmail("");
-    setMessage("");
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   const Submit = () => (
@@ -132,25 +130,25 @@ const ContactForm = props => {
     return (
       <Snackbar
         anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
+          vertical: 'top',
+          horizontal: 'right',
         }}
         open={openBool}
         variant={variant}
         autoHideDuration={5000}
         onClose={() => setOpen(false)}
         ContentProps={{
-          "aria-describedby": "message-id",
+          'aria-describedby': 'message-id',
         }}
       >
         <SnackbarContent
           className={classes[variant]}
-          message={
-            <span id="message-id" className={classes.message}>
+          message={(
+<span id="message-id" className={classes.message}>
               <Icon className={classes.icon} />
               {msg}
             </span>
-          }
+)}
         />
       </Snackbar>
     );
@@ -236,8 +234,7 @@ const ContactForm = props => {
   );
 };
 
-const Contact = props => {
-  const { classes } = props;
+const Contact = ({ classes }) => {
   const theme = useTheme();
   return (
     <Section

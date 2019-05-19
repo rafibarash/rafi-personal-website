@@ -7,15 +7,19 @@
     "@material-ui/icons": "^3.0.2",
     "@material-ui/styles": "next",
     "classnames": "^2.2.6",
-    "gatsby": "latest",
+    "gatsby": "^2.5.5",
+    "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-material-ui": "next",
     "gatsby-plugin-netlify": "^2.0.17",
     "gatsby-plugin-netlify-cms": "^4.0.1",
-    "gatsby-plugin-react-helmet": "latest",
+    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-source-filesystem": "^2.0.36",
+    "gatsby-transformer-remark": "^2.3.12",
     "netlify-cms-app": "^2.9.1",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-helmet": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-scroll": "^1.7.11"
   },
   "scripts": {
@@ -23,5 +27,12 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0"
   }
 }

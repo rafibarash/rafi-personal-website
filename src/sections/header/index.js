@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { withStyles } from "@material-ui/styles";
+import React, { useState } from 'react';
+import { withStyles } from '@material-ui/styles';
 import {
   List,
   ListItem,
@@ -7,52 +7,52 @@ import {
   Fab,
   Typography,
   Divider,
-} from "@material-ui/core";
-import { cyan } from "@material-ui/core/colors";
-import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-scroll";
+} from '@material-ui/core';
+import { cyan } from '@material-ui/core/colors';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from 'react-scroll';
 
 const styles = theme => ({
   root: {
-    position: "fixed",
-    right: "18px",
-    top: "18px",
+    position: 'fixed',
+    right: '18px',
+    top: '18px',
   },
   menu: {
-    color: "white",
+    color: 'white',
     backgroundColor: theme.palette.background.primary,
-    height: "100vh",
-    minWidth: "250px",
-    "& $a": {
-      padding: "15px",
-      "&:hover": {
+    height: '100vh',
+    minWidth: '250px',
+    '& $a': {
+      padding: '15px',
+      '&:hover': {
         backgroundColor: cyan[500],
-        cursor: "pointer",
+        cursor: 'pointer',
       },
     },
   },
   fab: {
-    backgroundColor: "darkgray",
-    color: "#fff",
-    fontSize: "8px",
-    borderRadius: "5px",
-    "&:hover": {
-      backgroundColor: "dimgray",
+    backgroundColor: 'darkgray',
+    color: '#fff',
+    fontSize: '8px',
+    borderRadius: '5px',
+    '&:hover': {
+      backgroundColor: 'dimgray',
     },
   },
 });
 
 const links = [
-  { name: "Home" },
-  { name: "About" },
-  { name: "Portfolio" },
-  { name: "Contact" },
+  { name: 'Home' },
+  { name: 'About' },
+  { name: 'Portfolio' },
+  { name: 'Contact' },
 ];
 
-const toggleDrawer = (setOpen, open) => event => {
+const toggleDrawer = (setOpen, open) => (event) => {
   if (
-    event.type === "keydown" &&
-    (event.key === "Tab" || event.key === "Shift")
+    event.type === 'keydown'
+    && (event.key === 'Tab' || event.key === 'Shift')
   ) {
     return;
   }

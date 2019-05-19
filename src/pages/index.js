@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 // Components
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
 
 // Sections
-import Showcase from "../sections/Showcase";
-import About from "../sections/About";
-import Portfolio from "../sections/Portfolio";
-import Contact from "../sections/Contact";
+import Showcase from '../sections/showcase';
+import About from '../sections/about';
+import Portfolio from '../sections/portfolio';
+import Contact from '../sections/contact';
 
 const IndexPage = () => (
   <Layout>

@@ -1,21 +1,21 @@
-import React from "react";
-import { Typography, Box } from "@material-ui/core";
-import { withStyles } from "@material-ui/styles";
-import { useTheme } from "@material-ui/styles";
-import { Link } from "react-scroll";
+import React from 'react';
+import { Typography, Box } from '@material-ui/core';
+import { withStyles, useTheme } from '@material-ui/styles';
+
+import { Link } from 'react-scroll';
 
 // My Components
-import Section from "../components/Section";
-import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
+import Section from '../../components/Section';
+import SectionTitle from '../../components/SectionTitle';
+import Button from '../../components/Button';
 
 const styles = theme => ({
   root: {},
   icon: {
-    color: "white",
+    color: 'white',
   },
   socialTitle: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 });
 
@@ -58,8 +58,7 @@ const SocialMedia = ({ classes }) => (
   </Box>
 );
 
-const About = props => {
-  const { classes } = props;
+const About = ({ classes }) => {
   const theme = useTheme();
   return (
     <Section
