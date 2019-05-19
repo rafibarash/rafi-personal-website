@@ -18,9 +18,28 @@ collections:
 
   - name: portfolio
     label: Portfolio
-    folder: portfolio
+    folder: src/sections/portfolio/portfolio
     create: true
     fields:
       - { name: title, label: Title, widget: string }
       - { name: description, label: Description, widget: string }
       - { name: image, label: Image, widget: image }
+
+  - name: sections
+    label: "Section Content"
+    files:
+      - file: src/sections/showcase/showcase.md
+        label: Showcase Section
+        name: showcase
+        fields:
+          - { name: messages, label: Messages, widget: list }
+      - file: src/sections/about/about.md
+        label: About Section
+        name: about
+        fields:
+          - { name: description, label: Description, widget: string }
+      - file: src/sections/contact/contact.md
+        label: Contact Section
+        name: contact
+        fields:
+          - { name: description, label: Description, widget: string }
