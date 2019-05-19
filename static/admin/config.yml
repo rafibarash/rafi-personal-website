@@ -6,16 +6,6 @@ media_folder: static/img
 public_folder: img
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
-
   - name: portfolio
     label: Portfolio
     folder: src/sections/portfolio/portfolio
@@ -28,11 +18,6 @@ collections:
   - name: sections
     label: "Section Content"
     files:
-      - file: src/sections/showcase/showcase.md
-        label: Showcase Section
-        name: showcase
-        fields:
-          - { name: messages, label: Messages, widget: list }
       - file: src/sections/about/about.md
         label: About Section
         name: about

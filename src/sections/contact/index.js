@@ -195,7 +195,7 @@ const ContactForm = (props) => {
               name="name"
               id="username"
               autoComplete="name"
-              autoFocus
+              // autoFocus
               value={name}
               onChange={e => setName(e.target.value)}
             />
