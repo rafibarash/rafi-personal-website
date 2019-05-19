@@ -28,7 +28,17 @@ let theme = createMuiTheme({
   overrides: {
     MuiContainer: {
       maxWidthMd: {
-        maxWidth: "800px!important",
+        maxWidth: "800px !important",
+      },
+    },
+    MuiButton: {
+      label: {
+        textTransform: "none",
+      },
+    },
+    MuiTypography: {
+      body1: {
+        fontSize: "1.14rem !important",
       },
     },
   },
