@@ -6,6 +6,7 @@ import { withStyles, useTheme } from '@material-ui/styles';
 // My Components
 import Section from '../../components/Section';
 import SectionTitle from '../../components/SectionTitle';
+import PortfolioGrid from './PortfolioGrid';
 
 const styles = {};
 
@@ -30,7 +31,7 @@ const PortfolioSection = () => {
       }
     `,
   );
-  const { edges: portfolios } = data.allMarkdownRemark;
+  const { edges: portfolio } = data.allMarkdownRemark;
   return (
     <Section
       bgColor={theme.palette.background.default}
@@ -38,7 +39,8 @@ const PortfolioSection = () => {
       name="Portfolio"
     >
       <SectionTitle>Portfolio</SectionTitle>
-      <Typography paragraph>My Portfolio</Typography>
+      <Typography paragraph>Fill in portfolio</Typography>
+      {/* <PortfolioGrid portfolio={portfolio} /> */}
     </Section>
   );
 };

@@ -20,14 +20,39 @@ module.exports = {
         name: 'sections',
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/img`,
-        name: 'images',
-      },
-    },
-    'gatsby-transformer-remark', // utilize markdown text (not sure i need cause internal markdown component)
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/src/img`,
+    //     name: 'images',
+    //   },
+    // },
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp', // gatsby wrapper of sharp image transformer library
+    // {
+    //   resolve: 'gatsby-transformer-remark',
+    //   options: {
+    //     plugins: [
+    //       // 'gatsby-remark-relative-images', // must be before gatsby-remark-images
+    //       {
+    //         resolve: 'gatsby-remark-relative-images',
+    //         options: {
+    //           name: 'uploads', // Must match the source name ^
+    //         },
+    //       },
+    //       {
+    //         resolve: 'gatsby-remark-images',
+    //         options: {
+    //           // It's important to specify the maxWidth (in pixels) of
+    //           // the content container as this plugin uses this as the
+    //           // base for generating different widths of each image.
+    //           // maxWidth: 590,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
     'gatsby-plugin-top-layout', // internal plugin. page wrapper for material ui (similar to withRoot)
     'gatsby-plugin-material-ui', // not sure if useful or not
     'gatsby-plugin-react-helmet', // for seo purposes
