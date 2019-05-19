@@ -1,13 +1,30 @@
 module.exports = {
   siteMetadata: {
-    title: 'My page',
+    title: 'Rafi Barash',
+    description: `My name is Rafi Barash and I'm a Junior majoring in Computer Science 
+      at the University of Minnesota, with a specialization in AI and Big Data.`,
   },
   plugins: [
     {
+      // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/static/img`,
+        name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/sections`,
+        name: 'sections',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/img`,
+        name: 'images',
       },
     },
     'gatsby-transformer-remark', // utilize markdown text (not sure i need cause internal markdown component)

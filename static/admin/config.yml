@@ -22,9 +22,11 @@ collections:
         label: About Section
         name: about
         fields:
+          - { name: sectionKey, label: "Section Key", widget: text }
           - { name: description, label: Description, widget: markdown }
       - file: src/sections/contact/contact.md
         label: Contact Section
         name: contact
         fields:
+          - { name: sectionKey, label: "Section Key", widget: text }
           - { name: description, label: Description, widget: markdown }
