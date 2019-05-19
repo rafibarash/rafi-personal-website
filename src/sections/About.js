@@ -2,7 +2,7 @@ import React from "react";
 import { Typography, Box } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import { useTheme } from "@material-ui/styles";
-import { Element, Link } from "react-scroll";
+import { Link } from "react-scroll";
 
 // My Components
 import Section from "../components/Section";
@@ -62,36 +62,35 @@ const About = props => {
   const { classes } = props;
   const theme = useTheme();
   return (
-    <Element name="about">
-      <Section
-        bgColor={theme.palette.background.primary}
-        maxWidth="md"
-        color="white"
+    <Section
+      bgColor={theme.palette.background.primary}
+      maxWidth="md"
+      color="white"
+      name="About"
+    >
+      <SectionTitle color="inherit">About</SectionTitle>
+      <Typography paragraph color="inherit">
+        My name is Rafi Barash and I'm a Junior majoring in Computer Science at
+        the University of Minnesota, with a specialization in AI and Big Data.
+        I'm passionate about machine learning and big data analytics, as well as
+        full-stack web development. Minnesota Club Tennis and slack-lining are
+        also pretty cool. This summer I will complete a software engineering
+        internship at Google.
+      </Typography>
+      <SocialMedia classes={classes} />
+      <Button
+        variant="contained"
+        color="default"
+        component={Link}
+        to="Portfolio"
+        spy
+        smooth
+        // offset={50}
+        duration={700}
       >
-        <SectionTitle color="inherit">About</SectionTitle>
-        <Typography paragraph color="inherit">
-          My name is Rafi Barash and I'm a Junior majoring in Computer Science
-          at the University of Minnesota, with a specialization in AI and Big
-          Data. I'm passionate about machine learning and big data analytics, as
-          well as full-stack web development. Minnesota Club Tennis and
-          slack-lining are also pretty cool. This summer I will complete a
-          software engineering internship at Google.
-        </Typography>
-        <SocialMedia classes={classes} />
-        <Button
-          variant="contained"
-          color="default"
-          component={Link}
-          to="portfolio"
-          spy
-          smooth
-          // offset={50}
-          duration={700}
-        >
-          Portfolio
-        </Button>
-      </Section>
-    </Element>
+        Portfolio
+      </Button>
+    </Section>
   );
 };
 

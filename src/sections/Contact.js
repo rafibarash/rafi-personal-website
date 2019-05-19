@@ -244,6 +244,7 @@ const Contact = props => {
       bgColor={theme.palette.background.secondary}
       maxWidth="md"
       color="white"
+      name="Contact"
     >
       <SectionTitle color="inherit">Contact Rafi Barash</SectionTitle>
       <Typography paragraph color="inherit" className={classes.intro}>

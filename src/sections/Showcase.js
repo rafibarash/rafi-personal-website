@@ -37,7 +37,7 @@ const WelcomeText = ({ classes }) => (
 const Showcase = props => {
   const { classes } = props;
   return (
-    <Element name="showcase" className={classes.root}>
+    <Element name="Home" className={classes.root}>
       <Box className={classes.box}>
         <Container maxWidth="md">
           <WelcomeText classes={classes} />
@@ -45,7 +45,7 @@ const Showcase = props => {
             variant="contained"
             color="primary"
             component={Link}
-            to="about"
+            to="About"
             spy
             smooth
             // offset={-50}

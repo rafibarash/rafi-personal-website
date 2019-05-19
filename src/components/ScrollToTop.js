@@ -23,7 +23,7 @@ const ScrollToTop = ({ classes }) => {
     <Fab
       className={classes.root}
       component={Link}
-      to="showcase"
+      to="Home"
       spy
       smooth
       // offset={50}
