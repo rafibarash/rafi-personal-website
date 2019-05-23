@@ -64,15 +64,15 @@ const About = ({ classes }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        markdownRemark(frontmatter: { sectionKey: { eq: "about-section" } }) {
-          frontmatter {
-            description
+        contentfulHomePage {
+          about {
+            about
           }
         }
       }
     `,
   );
-  const { description } = data.markdownRemark.frontmatter;
+  const { about } = data.contentfulHomePage.about;
   return (
     <Section
       bgColor={theme.palette.background.primary}
@@ -82,7 +82,7 @@ const About = ({ classes }) => {
     >
       <SectionTitle color="inherit">About</SectionTitle>
       <Typography paragraph color="inherit">
-        {description}
+        {about}
       </Typography>
       <SocialMedia classes={classes} />
       <Button

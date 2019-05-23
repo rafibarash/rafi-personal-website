@@ -5,17 +5,17 @@ import { Grid } from '@material-ui/core';
 const styles = {};
 
 const PortfolioItem = ({ item }) => (
-  <Grid item cols={1}>
+  <Grid item s={12}>
     {/* <img src={item.image} alt={item.title} /> */}
     {/* <p>{item.description}</p> */}
-    <p>{item.image.slice(3)}</p>
+    <p>{item.title}</p>
   </Grid>
 );
 
 const PortfolioGrid = ({ portfolio, classes }) => (
   <Grid container>
     {portfolio.map(({ node: item }) => (
-      <PortfolioItem item={item.frontmatter} key={item.frontmatter.title} />
+      <PortfolioItem item={item} key={item.title} />
     ))}
   </Grid>
 );

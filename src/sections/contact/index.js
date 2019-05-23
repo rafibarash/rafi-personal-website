@@ -239,15 +239,15 @@ const Contact = ({ classes }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        markdownRemark(frontmatter: { sectionKey: { eq: "contact-section" } }) {
-          frontmatter {
-            description
+        contentfulHomePage {
+          contact {
+            contact
           }
         }
       }
     `,
   );
-  const { description } = data.markdownRemark.frontmatter;
+  const { contact } = data.contentfulHomePage.contact;
   return (
     <Section
       bgColor={theme.palette.background.secondary}
@@ -257,7 +257,7 @@ const Contact = ({ classes }) => {
     >
       <SectionTitle color="inherit">Contact Rafi Barash</SectionTitle>
       <Typography paragraph color="inherit" className={classes.intro}>
-        {description}
+        {contact}
       </Typography>
       <ContactForm classes={classes} />
     </Section>

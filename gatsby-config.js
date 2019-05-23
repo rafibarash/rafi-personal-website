@@ -1,3 +1,16 @@
+const dotenv = require('dotenv');
+
+if (process.env.ENVIRONMENT !== 'production') {
+  dotenv.config();
+}
+
+const { CONTENTFUL_ACCESS_TOKEN } = process.env;
+
+const contentfulConfig = {
+  spaceId: '30diawm8d36r',
+  accessToken: CONTENTFUL_ACCESS_TOKEN,
+};
+
 module.exports = {
   siteMetadata: {
     title: 'Rafi Barash',
@@ -6,53 +19,37 @@ module.exports = {
   },
   plugins: [
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        path: `${__dirname}/static/img`,
-        name: 'uploads',
+        trackingId: 'UA-140680912-1',
+        // Puts tracking script in the head instead of the body
+        // head: false,
+        // // Setting this parameter is optional
+        // anonymize: true,
+        // // Setting this parameter is also optional
+        // respectDNT: true,
+        // // Avoids sending pageview hits from custom paths
+        // exclude: ['/preview/**', '/do-not-track/me/too/'],
+        // // Enables Google Optimize using your container Id
+        // optimizeId: 'YOUR_GOOGLE_OPTIMIZE_TRACKING_ID',
+        // // Enables Google Optimize Experiment ID
+        // experimentId: 'YOUR_GOOGLE_EXPERIMENT_ID',
+        // // Set Variation ID. 0 for original 1,2,3....
+        // variationId: 'YOUR_GOOGLE_OPTIMIZE_VARIATION_ID',
+        // // Any additional create only fields (optional)
+        // sampleRate: 5,
+        // siteSpeedSampleRate: 10,
+        // cookieDomain: 'example.com',
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/sections`,
-        name: 'sections',
-      },
-    },
-    // {
-    //   resolve: 'gatsby-source-filesystem',
-    //   options: {
-    //     path: `${__dirname}/src/img`,
-    //     name: 'images',
-    //   },
-    // },
+    'gatsby-plugin-sitemap', // generates sitemap with build
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp', // gatsby wrapper of sharp image transformer library
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     plugins: [
-    //       // 'gatsby-remark-relative-images', // must be before gatsby-remark-images
-    //       {
-    //         resolve: 'gatsby-remark-relative-images',
-    //         options: {
-    //           name: 'uploads', // Must match the source name ^
-    //         },
-    //       },
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //         options: {
-    //           // It's important to specify the maxWidth (in pixels) of
-    //           // the content container as this plugin uses this as the
-    //           // base for generating different widths of each image.
-    //           // maxWidth: 590,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-contentful', // get contentful data for graphql queries
+      options: contentfulConfig,
+    },
     'gatsby-plugin-top-layout', // internal plugin. page wrapper for material ui (similar to withRoot)
     'gatsby-plugin-material-ui', // not sure if useful or not
     'gatsby-plugin-react-helmet', // for seo purposes
@@ -67,11 +64,10 @@ module.exports = {
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'standalone',
-        icon: 'src/img/logo.png', // This path is relative to the root of the site.
+        icon: 'logo.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline', // must be after gatsby-plugin-manifest
-    'gatsby-plugin-netlify-cms', // for netlify cms functionality
     'gatsby-plugin-netlify', // supposed to be last, mostly for relative links
   ],
 };

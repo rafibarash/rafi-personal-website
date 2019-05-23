@@ -15,15 +15,15 @@ const PortfolioSection = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allMarkdownRemark(
-          filter: { frontmatter: { title: { ne: "" }, image: { ne: "" } } }
-        ) {
+        allContentfulPortfolio {
           edges {
             node {
-              frontmatter {
-                title
-                description
-                image
+              title
+              description
+              picture {
+                fluid(maxWidth: 1000) {
+                  ...GatsbyContentfulFluid_withWebp
+                }
               }
             }
           }
@@ -31,7 +31,7 @@ const PortfolioSection = () => {
       }
     `,
   );
-  const { edges: portfolio } = data.allMarkdownRemark;
+  const { edges: portfolio } = data.allContentfulPortfolio;
   return (
     <Section
       bgColor={theme.palette.background.default}
@@ -39,8 +39,7 @@ const PortfolioSection = () => {
       name="Portfolio"
     >
       <SectionTitle>Portfolio</SectionTitle>
-      <Typography paragraph>Fill in portfolio</Typography>
-      {/* <PortfolioGrid portfolio={portfolio} /> */}
+      <PortfolioGrid portfolio={portfolio} />
     </Section>
   );
 };
