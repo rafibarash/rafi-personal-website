@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Container, Box } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Link, Element } from 'react-scroll';
+import Typed from 'react-typed';
 
 // My Components
 import Button from '../../components/Button';
@@ -23,16 +24,24 @@ const styles = theme => ({
   },
   welcomeText: {
     marginBottom: '3.5rem',
+    fontSize: '4rem',
   },
 });
 
 const WelcomeText = ({ classes }) => (
-  <div>
-    <Typography variant="h2" component="h1" className={classes.welcomeText}>
-      Hi, I'm
-      {'  '}
-      <b>Rafi Barash</b>
-    </Typography>
+  <div className={classes.welcomeText}>
+    <Typed
+      strings={[
+        "Hi, I'm a <strong>college student.</strong>",
+        "Hi, I'm a <strong>developer.</strong>",
+        "Hi, I'm <strong>Rafi Barash.</strong>",
+      ]}
+      typeSpeed={33}
+      backSpeed={25}
+      backDelay={750}
+      showCursor
+      cursorChar="|"
+    />
   </div>
 );
 
