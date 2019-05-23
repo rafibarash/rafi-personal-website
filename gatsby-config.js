@@ -16,6 +16,7 @@ module.exports = {
     title: 'Rafi Barash',
     description: `My name is Rafi Barash and I'm a Junior majoring in Computer Science 
       at the University of Minnesota, with a specialization in AI and Big Data.`,
+    siteUrl: 'https://rafibarash.com',
   },
   plugins: [
     {
