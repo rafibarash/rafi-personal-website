@@ -10,11 +10,10 @@ import {
 } from '@material-ui/core';
 import { cyan } from '@material-ui/core/colors';
 import MenuIcon from '@material-ui/icons/Menu';
-// import { Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 // My Components
 import MuiLink from '../../components/MuiLink';
-import ScrollLink from '../../components/ScrollLink';
 
 const styles = theme => ({
   root: {},
@@ -53,6 +52,15 @@ const toggleDrawer = (setOpen, open) => (event) => {
   }
 
   setOpen(open);
+};
+
+const ScrollLink = (props) => {
+  const { children } = props;
+  return (
+    <Link spy smooth duration={700} {...props}>
+      {children}
+    </Link>
+  );
 };
 
 const SideMenu = ({ setOpen, classes }) => {
