@@ -1,32 +1,30 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import { Typography, Box, Link } from '@material-ui/core';
+import { Typography, Box } from '@material-ui/core';
+
+// My Components
+import MuiLink from '../../components/MuiLink';
 
 const styles = {};
 
 const Footer = ({ classes }) => (
   <Box py={10} textAlign="center">
     <Typography paragraph>Built by Rafi Barash</Typography>
-    <Typography variant="body1">
+    <Typography paragraph>
+      Check out the
+      {'  '}
+      <MuiLink href="https://github.com/rafibarash/rafibarash.github.io">
+        source code
+      </MuiLink>
+    </Typography>
+    <Typography paragraph>
       Currently on version 3 of my website &middot;
       {'  '}
-      <Link
-        href="https://rafibarash.github.io/v2"
-        target="_blank"
-        rel="noopener"
-      >
-        v2
-      </Link>
+      <MuiLink href="https://rafibarash.github.io/v2">v2</MuiLink>
       {'  '}
       &middot;
       {'  '}
-      <Link
-        href="https://rafibarash.github.io/v1"
-        target="_blank"
-        rel="noopener"
-      >
-        v1
-      </Link>
+      <MuiLink href="https://rafibarash.github.io/v1">v1</MuiLink>
     </Typography>
   </Box>
 );

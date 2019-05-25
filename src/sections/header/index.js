@@ -7,18 +7,17 @@ import {
   Fab,
   Typography,
   Divider,
-  Link as MuiLink,
 } from '@material-ui/core';
 import { cyan } from '@material-ui/core/colors';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-scroll';
+// import { Link } from 'react-scroll';
+
+// My Components
+import MuiLink from '../../components/MuiLink';
+import ScrollLink from '../../components/ScrollLink';
 
 const styles = theme => ({
-  root: {
-    position: 'fixed',
-    right: '18px',
-    top: '18px',
-  },
+  root: {},
   menu: {
     color: 'white',
     backgroundColor: theme.palette.background.primary,
@@ -33,9 +32,11 @@ const styles = theme => ({
     },
   },
   fab: {
+    position: 'fixed',
+    right: '20px',
+    top: '20px',
     backgroundColor: 'darkgray',
     color: '#fff',
-    fontSize: '8px',
     borderRadius: '5px',
     '&:hover': {
       backgroundColor: 'dimgray',
@@ -54,15 +55,6 @@ const toggleDrawer = (setOpen, open) => (event) => {
   setOpen(open);
 };
 
-const ScrollLink = (props) => {
-  const { children } = props;
-  return (
-    <Link spy smooth duration={700} {...props}>
-      {children}
-    </Link>
-  );
-};
-
 const SideMenu = ({ setOpen, classes }) => {
   const relativeLinks = [
     { name: 'Home' },
@@ -73,6 +65,10 @@ const SideMenu = ({ setOpen, classes }) => {
   const externalLinks = [
     { name: 'Resume', to: '/' },
     { name: 'Transcript', to: '/' },
+    {
+      name: 'Source Code',
+      to: 'https://github.com/rafibarash/rafibarash.github.io',
+    },
   ];
   return (
     <div

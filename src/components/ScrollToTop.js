@@ -25,7 +25,6 @@ const ScrollToTop = ({ classes }) => (
     to="Home"
     spy
     smooth
-    // offset={50}
     duration={700}
   >
     <KeyboardArrowUpIcon />
