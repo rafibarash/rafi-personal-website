@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Container, Box } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Link, Element } from 'react-scroll';
 import Typed from 'react-typed';

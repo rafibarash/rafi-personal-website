@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Typography } from '@material-ui/core';
 import { withStyles, useTheme } from '@material-ui/styles';
 
 // My Components
@@ -10,7 +9,7 @@ import PortfolioGrid from './PortfolioGrid';
 
 const styles = {};
 
-const PortfolioSection = () => {
+const Portfolio = () => {
   const theme = useTheme();
   const data = useStaticQuery(
     graphql`
@@ -44,4 +43,4 @@ const PortfolioSection = () => {
   );
 };
 
-export default withStyles(styles)(PortfolioSection);
+export default withStyles(styles)(Portfolio);
