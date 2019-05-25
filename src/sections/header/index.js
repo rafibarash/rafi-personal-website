@@ -7,6 +7,7 @@ import {
   Fab,
   Typography,
   Divider,
+  Link as MuiLink,
 } from '@material-ui/core';
 import { cyan } from '@material-ui/core/colors';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -42,13 +43,6 @@ const styles = theme => ({
   },
 });
 
-const links = [
-  { name: 'Home' },
-  { name: 'About' },
-  { name: 'Portfolio' },
-  { name: 'Contact' },
-];
-
 const toggleDrawer = (setOpen, open) => (event) => {
   if (
     event.type === 'keydown'
@@ -60,41 +54,66 @@ const toggleDrawer = (setOpen, open) => (event) => {
   setOpen(open);
 };
 
-const SideMenu = ({ setOpen, classes }) => (
-  <div
-    role="presentation"
-    onClick={toggleDrawer(setOpen, false)}
-    onKeyDown={toggleDrawer(setOpen, false)}
-  >
-    <div className={classes.menu}>
-      <List>
-        <ListItem
-          component={Link}
-          to="Home"
-          spy
-          smooth
-          // offset={50}
-          duration={700}
-        >
-          <Typography variant="h5">Rafi Barash</Typography>
-        </ListItem>
-        <Divider />
-        {links.map(link => (
+const ScrollLink = (props) => {
+  const { children } = props;
+  return (
+    <Link spy smooth duration={700} {...props}>
+      {children}
+    </Link>
+  );
+};
+
+const SideMenu = ({ setOpen, classes }) => {
+  const relativeLinks = [
+    { name: 'Home' },
+    { name: 'About' },
+    { name: 'Portfolio' },
+    { name: 'Contact' },
+  ];
+  const externalLinks = [
+    { name: 'Resume', to: '/' },
+    { name: 'Transcript', to: '/' },
+  ];
+  return (
+    <div
+      role="presentation"
+      onClick={toggleDrawer(setOpen, false)}
+      onKeyDown={toggleDrawer(setOpen, false)}
+    >
+      <div className={classes.menu}>
+        <List>
           <ListItem
-            component={Link}
-            to={link.name}
-            spy
-            smooth
-            // offset={50}
-            duration={700}
+            component={ScrollLink}
+            to="Home"
+            onClick={toggleDrawer(setOpen, false)}
           >
-            <Typography variant="body1">{link.name}</Typography>
+            <Typography variant="h5">Rafi Barash</Typography>
           </ListItem>
-        ))}
-      </List>
+          <Divider />
+          {relativeLinks.map(link => (
+            <ListItem
+              component={ScrollLink}
+              to={link.name}
+              onClick={toggleDrawer(setOpen, false)}
+            >
+              <Typography variant="body1">{link.name}</Typography>
+            </ListItem>
+          ))}
+          <Divider />
+          {externalLinks.map(link => (
+            <ListItem
+              component={MuiLink}
+              href={link.to}
+              style={{ color: 'white', textDecoration: 'none' }}
+            >
+              <Typography variant="body1">{link.name}</Typography>
+            </ListItem>
+          ))}
+        </List>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Header = ({ classes }) => {
   const [open, setOpen] = useState(false);
