@@ -38,6 +38,7 @@ const styles = theme => ({
   avatar: {
     marginTop: theme.spacing(1),
     backgroundColor: theme.palette.primary.main,
+    fontSize: '40px',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -51,10 +52,7 @@ const styles = theme => ({
   error: {
     backgroundColor: theme.palette.error.main,
   },
-  icon: {
-    marginRight: '10px',
-    fontSize: '20px',
-  },
+  icon: {},
   message: {
     display: 'flex',
     alignItems: 'center',
@@ -164,7 +162,7 @@ const ContactForm = ({ classes }) => {
     <main className={classes.main}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <EmailIcon />
+          <EmailIcon className={classes.icon} />
         </Avatar>
         <form
           name="contact"

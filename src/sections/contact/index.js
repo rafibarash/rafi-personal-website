@@ -2,8 +2,6 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { withStyles, useTheme } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import ErrorIcon from '@material-ui/icons/Error';
 
 // My Components
 import Section from '../../components/Section';
@@ -41,7 +39,7 @@ const Contact = ({ classes }) => {
       <Typography paragraph color="inherit" className={classes.intro}>
         {contact}
       </Typography>
-      <ContactForm classes={classes} />
+      <ContactForm />
     </Section>
   );
 };
