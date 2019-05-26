@@ -30,6 +30,9 @@ const theme = createMuiTheme({
       maxWidthMd: {
         maxWidth: '800px !important',
       },
+      maxWidthLg: {
+        maxWidth: '1100px !important',
+      },
     },
     MuiButton: {
       label: {

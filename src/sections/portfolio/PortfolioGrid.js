@@ -5,25 +5,36 @@ import { Grid, Link, Typography } from '@material-ui/core';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   item: {
     position: 'relative',
-    // width: '400px',
+    display: 'block',
+    overflow: 'hidden',
+    // maxWidth: '530px',
+    // width: '350px',
     // height: '300px',
     // border: '2px solid black',
   },
   img: {
+    // zIndex: '-1',
     width: '100%',
-    height: '100%',
+    height: '400px',
     filter: 'brightness(40%)',
+    // transition: '0.25 ease-out',
+    transition: 'all 0.3s',
+    '&:hover': {
+      // clipPath: 'inset(2rem)',
+      transform: 'scale(1.1)',
+    },
   },
   content: {
     position: 'absolute',
-    top: '20px',
+    bottom: '20px',
     padding: '0 15px',
     textAlign: 'left',
     color: 'white',
+    zIndex: '1',
     // left: '20px',
   },
   title: {
@@ -40,7 +51,7 @@ const styles = {
 };
 
 const PortfolioItem = ({ item, classes }) => (
-  <Grid item xs={12} m={6}>
+  <Grid item xs={12} md={6}>
     <div className={classes.item}>
       <Link href="https://github.com/rafibarash">
         <Img fluid={item.picture.fluid} className={classes.img} />
@@ -57,7 +68,7 @@ const PortfolioItem = ({ item, classes }) => (
 
 const PortfolioGrid = ({ portfolio, classes }) => (
   <div className={classes.root}>
-    <Grid container spacing={3}>
+    <Grid container>
       {portfolio.map(({ node: item }) => (
         <PortfolioItem item={item} key={item.title} classes={classes} />
       ))}

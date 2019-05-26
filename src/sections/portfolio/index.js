@@ -20,7 +20,7 @@ const Portfolio = () => {
               title
               description
               picture {
-                fluid(maxWidth: 1000) {
+                fluid {
                   ...GatsbyContentfulFluid_withWebp
                 }
               }
@@ -34,7 +34,7 @@ const Portfolio = () => {
   return (
     <Section
       bgColor={theme.palette.background.default}
-      maxWidth="md"
+      maxWidth="lg"
       name="Portfolio"
     >
       <SectionTitle>Portfolio</SectionTitle>

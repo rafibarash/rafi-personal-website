@@ -55,15 +55,6 @@ const toggleDrawer = (setOpen, open) => (event) => {
   setOpen(open);
 };
 
-const ScrollLink = (props) => {
-  const { children } = props;
-  return (
-    <Link spy smooth duration={700} {...props}>
-      {children}
-    </Link>
-  );
-};
-
 const SideMenu = ({ setOpen, classes }) => {
   const data = useStaticQuery(
     graphql`
@@ -109,18 +100,25 @@ const SideMenu = ({ setOpen, classes }) => {
       <div className={classes.menu}>
         <List>
           <ListItem
-            component={ScrollLink}
+            component={Link}
             to="Home"
             onClick={toggleDrawer(setOpen, false)}
+            spy
+            smooth
+            duration={700}
           >
             <Typography variant="h5">Rafi Barash</Typography>
           </ListItem>
           <Divider />
           {relativeLinks.map(link => (
             <ListItem
-              component={ScrollLink}
+              component={Link}
               to={link.name}
               onClick={toggleDrawer(setOpen, false)}
+              spy
+              smooth
+              duration={700}
+              key={link.name}
             >
               <Typography variant="body1">{link.name}</Typography>
             </ListItem>
@@ -131,6 +129,7 @@ const SideMenu = ({ setOpen, classes }) => {
               component={MuiLink}
               href={link.to}
               style={{ color: 'white', textDecoration: 'none' }}
+              key={link.name}
             >
               <Typography variant="body1">{link.name}</Typography>
             </ListItem>
