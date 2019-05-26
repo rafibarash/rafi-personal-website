@@ -4,22 +4,26 @@ import { withStyles } from '@material-ui/styles';
 import { Grid, Link, Typography } from '@material-ui/core';
 
 const styles = {
+  root: {
+    flexGrow: 1,
+  },
   item: {
     position: 'relative',
     // width: '400px',
     // height: '300px',
-    border: '2px solid black',
+    // border: '2px solid black',
   },
   img: {
     width: '100%',
     height: '100%',
+    filter: 'brightness(40%)',
   },
   content: {
     position: 'absolute',
     top: '20px',
     padding: '0 15px',
     textAlign: 'left',
-    color: 'black',
+    color: 'white',
     // left: '20px',
   },
   title: {
@@ -52,11 +56,13 @@ const PortfolioItem = ({ item, classes }) => (
 );
 
 const PortfolioGrid = ({ portfolio, classes }) => (
-  <Grid container>
-    {portfolio.map(({ node: item }) => (
-      <PortfolioItem item={item} key={item.title} classes={classes} />
-    ))}
-  </Grid>
+  <div className={classes.root}>
+    <Grid container spacing={3}>
+      {portfolio.map(({ node: item }) => (
+        <PortfolioItem item={item} key={item.title} classes={classes} />
+      ))}
+    </Grid>
+  </div>
 );
 
 export default withStyles(styles)(PortfolioGrid);

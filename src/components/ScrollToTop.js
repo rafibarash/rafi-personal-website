@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/styles';
 import { Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Link } from 'react-scroll';
-import classnames from 'classnames';
 
 const styles = {
   root: {
@@ -16,10 +15,6 @@ const styles = {
     '&:hover': {
       backgroundColor: 'dimgray',
     },
-  },
-  show: {},
-  fade: {
-    display: 'none',
   },
 };
 
@@ -35,19 +30,20 @@ const ScrollToTop = ({ classes }) => {
     };
   });
   return (
-    <Fab
-      className={classnames(classes.root, {
-        [classes.show]: show,
-        [classes.fade]: !show,
-      })}
-      component={Link}
-      to="Home"
-      spy
-      smooth
-      duration={700}
-    >
-      <KeyboardArrowUpIcon />
-    </Fab>
+    <>
+      {show && (
+        <Fab
+          className={classes.root}
+          component={Link}
+          to="Home"
+          spy
+          smooth
+          duration={700}
+        >
+          <KeyboardArrowUpIcon />
+        </Fab>
+      )}
+    </>
   );
 };
 
