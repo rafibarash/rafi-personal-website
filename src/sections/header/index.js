@@ -34,6 +34,7 @@ const styles = theme => ({
   },
   fab: {
     position: 'fixed',
+    zIndex: '100',
     right: '20px',
     top: '20px',
     backgroundColor: 'darkgray',

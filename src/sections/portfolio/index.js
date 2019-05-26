@@ -14,10 +14,11 @@ const Portfolio = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allContentfulPortfolio {
+        allContentfulPortfolio(sort: { fields: [dateCreated], order: DESC }) {
           edges {
             node {
               title
+              link
               description
               picture {
                 fluid {

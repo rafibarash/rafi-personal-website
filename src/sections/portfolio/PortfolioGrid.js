@@ -1,7 +1,10 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { withStyles } from '@material-ui/styles';
-import { Grid, Link, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
+
+// My Components
+import MuiLink from '../../components/MuiLink';
 
 const styles = theme => ({
   root: {
@@ -10,16 +13,13 @@ const styles = theme => ({
   item: {
     position: 'relative',
     display: 'block',
-    overflow: 'hidden',
     maxWidth: '530px',
-    // width: '350px',
-    // height: '300px',
-    // border: '2px solid black',
+    // border: '1px solid black',
   },
   img: {
     // zIndex: '-1',
     width: '100%',
-    height: '400px',
+    height: '325px',
     filter: 'brightness(40%)',
     // transition: '0.25 ease-out',
     transition: 'all 0.3s',
@@ -50,7 +50,7 @@ const styles = theme => ({
   },
   title: {
     fontWeight: 'bold',
-    marginBottom: '1rem',
+    marginBottom: '0.5rem',
   },
   descr: {},
 });
@@ -58,7 +58,7 @@ const styles = theme => ({
 const PortfolioItem = ({ item, classes }) => (
   <Grid item xs={12} md={6}>
     <div className={classes.item}>
-      <Link href="https://github.com/rafibarash">
+      <MuiLink href={item.link}>
         <Img fluid={item.picture.fluid} className={classes.img} />
         <div className={classes.caption}>
           <div className={classes.captionContent}>
@@ -70,7 +70,7 @@ const PortfolioItem = ({ item, classes }) => (
             </Typography>
           </div>
         </div>
-      </Link>
+      </MuiLink>
     </div>
   </Grid>
 );
