@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { Typography, Box } from '@material-ui/core';
+import { Typography, Box, Grow } from '@material-ui/core';
 import { withStyles, useTheme } from '@material-ui/styles';
 import { Link } from 'react-scroll';
 import {

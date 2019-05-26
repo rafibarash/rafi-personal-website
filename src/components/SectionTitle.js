@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/styles';
 
 const styles = {
   title: {
-    paddingBottom: '2rem',
+    paddingBottom: '2.5rem',
     fontWeight: 'bold',
   },
 };

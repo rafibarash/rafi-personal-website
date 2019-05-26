@@ -8,6 +8,7 @@ import {
   Fab,
   Typography,
   Divider,
+  Zoom,
 } from '@material-ui/core';
 import { cyan } from '@material-ui/core/colors';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -143,13 +144,15 @@ const SideMenu = ({ setOpen, classes }) => {
 const Header = ({ classes }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={classes.root}>
-      <Fab
-        onClick={() => setOpen(prevOpen => !prevOpen)}
-        className={classes.fab}
-      >
-        <MenuIcon />
-      </Fab>
+    <div>
+      <Zoom in style={{ transitionDelay: '500ms' }}>
+        <Fab
+          onClick={() => setOpen(prevOpen => !prevOpen)}
+          className={classes.fab}
+        >
+          <MenuIcon />
+        </Fab>
+      </Zoom>
       <Drawer open={open} anchor="right" onClose={toggleDrawer(setOpen, false)}>
         <SideMenu setOpen={setOpen} classes={classes} />
       </Drawer>

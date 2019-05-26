@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/styles';
-import { Fab } from '@material-ui/core';
+import { Fab, Zoom } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import { Link } from 'react-scroll';
 
@@ -32,16 +32,18 @@ const ScrollToTop = ({ classes }) => {
   return (
     <>
       {show && (
-        <Fab
-          className={classes.root}
-          component={Link}
-          to="Home"
-          spy
-          smooth
-          duration={700}
-        >
-          <KeyboardArrowUpIcon />
-        </Fab>
+        <Zoom in>
+          <Fab
+            className={classes.root}
+            component={Link}
+            to="Home"
+            spy
+            smooth
+            duration={700}
+          >
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </Zoom>
       )}
     </>
   );
