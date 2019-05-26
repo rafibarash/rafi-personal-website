@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { withStyles } from '@material-ui/styles';
 import {
   List,
@@ -64,6 +65,27 @@ const ScrollLink = (props) => {
 };
 
 const SideMenu = ({ setOpen, classes }) => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        contentfulHomePage {
+          resume {
+            file {
+              url
+              fileName
+              contentType
+            }
+          }
+          transcript {
+            file {
+              url
+            }
+          }
+        }
+      }
+    `,
+  );
+  const { resume, transcript } = data.contentfulHomePage;
   const relativeLinks = [
     { name: 'Home' },
     { name: 'About' },
@@ -71,8 +93,8 @@ const SideMenu = ({ setOpen, classes }) => {
     { name: 'Contact' },
   ];
   const externalLinks = [
-    { name: 'Resume', to: '/' },
-    { name: 'Transcript', to: '/' },
+    { name: 'Resume', to: resume.file.url },
+    { name: 'Transcript', to: transcript.file.url },
     {
       name: 'Source Code',
       to: 'https://github.com/rafibarash/rafibarash.github.io',
