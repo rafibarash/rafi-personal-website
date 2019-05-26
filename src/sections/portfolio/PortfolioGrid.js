@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import { withStyles } from '@material-ui/styles';
 import { Grid, Link, Typography } from '@material-ui/core';
 
-const styles = {
+const styles = theme => ({
   root: {
     // flexGrow: 1,
   },
@@ -11,7 +11,7 @@ const styles = {
     position: 'relative',
     display: 'block',
     overflow: 'hidden',
-    // maxWidth: '530px',
+    maxWidth: '530px',
     // width: '350px',
     // height: '300px',
     // border: '2px solid black',
@@ -23,43 +23,52 @@ const styles = {
     filter: 'brightness(40%)',
     // transition: '0.25 ease-out',
     transition: 'all 0.3s',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '1rem',
+    },
     '&:hover': {
       // clipPath: 'inset(2rem)',
-      transform: 'scale(1.1)',
+      // transform: 'scale(1.1)',
     },
   },
-  content: {
+  caption: {
+    display: 'flex',
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'fade-out(gray, 0.8)',
     position: 'absolute',
-    bottom: '20px',
+    top: 0,
+    bottom: 0,
     padding: '0 15px',
     textAlign: 'left',
     color: 'white',
     zIndex: '1',
-    // left: '20px',
+  },
+  captionContent: {
+    color: 'white',
+    margin: 'auto 2rem 2rem',
   },
   title: {
-    // position: 'absolute',
-    // top: '10px',
-    // left: '10px',
-    marginBottom: '25px',
+    fontWeight: 'bold',
+    marginBottom: '1rem',
   },
-  caption: {
-    // position: 'absolute',
-    // bottom: '10px',
-    // left: '10px',
-  },
-};
+  descr: {},
+});
 
 const PortfolioItem = ({ item, classes }) => (
   <Grid item xs={12} md={6}>
     <div className={classes.item}>
       <Link href="https://github.com/rafibarash">
         <Img fluid={item.picture.fluid} className={classes.img} />
-        <div className={classes.content}>
-          <Typography className={classes.title}>{item.title}</Typography>
-          <Typography className={classes.caption}>
-            {item.description}
-          </Typography>
+        <div className={classes.caption}>
+          <div className={classes.captionContent}>
+            <Typography variant="subtitle1" className={classes.title}>
+              {item.title}
+            </Typography>
+            <Typography paragraph className={classes.descr}>
+              {item.description}
+            </Typography>
+          </div>
         </div>
       </Link>
     </div>
