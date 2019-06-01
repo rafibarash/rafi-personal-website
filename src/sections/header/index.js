@@ -62,11 +62,14 @@ const SideMenu = ({ setOpen, classes }) => {
     graphql`
       query {
         contentfulHomePage {
+          impossibleList {
+            file {
+              url
+            }
+          }
           resume {
             file {
               url
-              fileName
-              contentType
             }
           }
           transcript {
@@ -78,7 +81,7 @@ const SideMenu = ({ setOpen, classes }) => {
       }
     `,
   );
-  const { resume, transcript } = data.contentfulHomePage;
+  const { impossibleList, resume, transcript } = data.contentfulHomePage;
   const relativeLinks = [
     { name: 'Home' },
     { name: 'About' },
@@ -88,6 +91,7 @@ const SideMenu = ({ setOpen, classes }) => {
   const externalLinks = [
     { name: 'Resume', to: resume.file.url },
     { name: 'Transcript', to: transcript.file.url },
+    { name: 'Impossible List', to: impossibleList.file.url },
     {
       name: 'Source Code',
       to: 'https://github.com/rafibarash/rafibarash.github.io',

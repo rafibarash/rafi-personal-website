@@ -1,7 +1,9 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { withStyles } from '@material-ui/styles';
-import { Grid, Typography, Container } from '@material-ui/core';
+import {
+ Grid, Typography, Container, Box 
+} from '@material-ui/core';
 
 // My Components
 import MuiLink from '../../components/MuiLink';
@@ -12,39 +14,45 @@ const styles = theme => ({
     display: 'block',
     maxWidth: '530px',
     margin: 'auto',
-    // border: '1px solid black',
+    [theme.breakpoints.up('md')]: {
+      transition: '0.5s ease',
+    },
   },
   img: {
-    // zIndex: '-1',
+    filter: 'brightness(40%)',
     width: '100%',
     height: '325px',
-    filter: 'brightness(40%)',
-    // transition: '0.25 ease-out',
-    transition: 'all 0.3s',
-    [theme.breakpoints.down('sm')]: {
-      marginBottom: '1rem',
-    },
-    '&:hover': {
-      // clipPath: 'inset(2rem)',
-      // transform: 'scale(1.1)',
+    // marginBottom: '1rem',
+    [theme.breakpoints.up('md')]: {
+      filter: 'brightness(70%)',
+      // marginBottom: '0',
     },
   },
   caption: {
     display: 'flex',
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'fade-out(gray, 0.8)',
     position: 'absolute',
     top: 0,
     bottom: 0,
-    padding: '0 15px',
-    textAlign: 'left',
-    color: 'white',
-    zIndex: '1',
+    height: '100%',
+    width: '100%',
+    opacity: '1',
+    [theme.breakpoints.up('md')]: {
+      transition: '0.5s ease',
+      backgroundColor: `${theme.palette.primary.main}`,
+      opacity: '0',
+      '&:hover': {
+        opacity: '0.8',
+      },
+    },
   },
   captionContent: {
     color: 'white',
-    margin: 'auto 2rem 2rem',
+    textAlign: 'left',
+    margin: 'auto 3rem 3rem',
+    transition: '0.5s ease',
+    [theme.breakpoints.up('md')]: {
+      opacity: '1',
+    },
   },
   title: {
     fontWeight: 'bold',
@@ -55,21 +63,19 @@ const styles = theme => ({
 
 const PortfolioItem = ({ item, classes }) => (
   <Grid item xs={12} md={6}>
-    <div className={classes.item}>
-      <MuiLink href={item.link}>
-        <Img fluid={item.picture.fluid} className={classes.img} />
-        <div className={classes.caption}>
-          <div className={classes.captionContent}>
-            <Typography variant="subtitle1" className={classes.title}>
-              {item.title}
-            </Typography>
-            <Typography paragraph className={classes.descr}>
-              {item.description}
-            </Typography>
-          </div>
+    <MuiLink href={item.link} className={classes.item}>
+      <Img fluid={item.picture.fluid} className={classes.img} />
+      <div className={classes.caption}>
+        <div className={classes.captionContent}>
+          <Typography variant="subtitle1" className={classes.title}>
+            {item.title}
+          </Typography>
+          <Typography paragraph className={classes.descr}>
+            {item.description}
+          </Typography>
         </div>
-      </MuiLink>
-    </div>
+      </div>
+    </MuiLink>
   </Grid>
 );
 
