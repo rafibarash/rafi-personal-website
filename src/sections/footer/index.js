@@ -11,7 +11,7 @@ const Footer = ({ classes }) => (
   <Box py={10} textAlign="center">
     <Typography paragraph>Built by Rafi Barash</Typography>
     <Typography paragraph>
-      Check out the
+      Check out that
       {'  '}
       <MuiLink href="https://github.com/rafibarash/rafibarash.github.io">
         source code
