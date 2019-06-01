@@ -1,19 +1,17 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { withStyles } from '@material-ui/styles';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Container } from '@material-ui/core';
 
 // My Components
 import MuiLink from '../../components/MuiLink';
 
 const styles = theme => ({
-  root: {
-    // flexGrow: 1,
-  },
   item: {
     position: 'relative',
     display: 'block',
     maxWidth: '530px',
+    margin: 'auto',
     // border: '1px solid black',
   },
   img: {
@@ -76,13 +74,11 @@ const PortfolioItem = ({ item, classes }) => (
 );
 
 const PortfolioGrid = ({ portfolio, classes }) => (
-  <div className={classes.root}>
-    <Grid container>
-      {portfolio.map(({ node: item }) => (
-        <PortfolioItem item={item} key={item.title} classes={classes} />
-      ))}
-    </Grid>
-  </div>
+  <Grid container>
+    {portfolio.map(({ node: item }) => (
+      <PortfolioItem item={item} key={item.title} classes={classes} />
+    ))}
+  </Grid>
 );
 
 export default withStyles(styles)(PortfolioGrid);
