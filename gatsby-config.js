@@ -16,6 +16,7 @@ module.exports = {
     title: 'Rafi Barash',
     description: `My name is Rafi Barash and I'm a Junior majoring in Computer Science 
       at the University of Minnesota, with a specialization in AI and Big Data.`,
+    author: 'Rafi Barash',
     siteUrl: 'https://rafibarash.com',
   },
   plugins: [
@@ -43,7 +44,6 @@ module.exports = {
         // cookieDomain: 'example.com',
       },
     },
-    'gatsby-plugin-sitemap', // generates sitemap with build
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp', // gatsby wrapper of sharp image transformer library
@@ -51,8 +51,9 @@ module.exports = {
       resolve: 'gatsby-source-contentful', // get contentful data for graphql queries
       options: contentfulConfig,
     },
-    'gatsby-plugin-top-layout', // internal plugin. page wrapper for material ui (similar to withRoot)
     'gatsby-plugin-material-ui', // not sure if useful or not
+    'gatsby-plugin-robots-txt', // generates robots.txt with build
+    'gatsby-plugin-sitemap', // generates sitemap with build
     'gatsby-plugin-react-helmet', // for seo purposes
     {
       resolve: 'gatsby-plugin-manifest',

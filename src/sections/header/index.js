@@ -154,6 +154,7 @@ const Header = ({ classes }) => {
         <Fab
           onClick={() => setOpen(prevOpen => !prevOpen)}
           className={classes.fab}
+          aria-label="header button"
         >
           <MenuIcon />
         </Fab>

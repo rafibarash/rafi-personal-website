@@ -22,10 +22,10 @@ const styles = theme => ({
     filter: 'brightness(40%)',
     width: '100%',
     height: '325px',
-    // marginBottom: '1rem',
+    marginBottom: '1rem',
     [theme.breakpoints.up('md')]: {
       filter: 'brightness(70%)',
-      // marginBottom: '0',
+      marginBottom: '0',
     },
   },
   caption: {

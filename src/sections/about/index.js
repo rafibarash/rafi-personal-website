@@ -61,23 +61,32 @@ const styles = theme => ({
 
 const SocialMedia = ({ classes }) => {
   const socialMedia = [
-    { icon: FaGithub, url: 'https://github.com/rafibarash', color: 'white' },
     {
+      name: 'Github',
+      icon: FaGithub,
+      url: 'https://github.com/rafibarash',
+      color: 'white',
+    },
+    {
+      name: 'Spotify',
       icon: FaSpotify,
       url: 'https://open.spotify.com/user/1215854478',
       color: 'lightgreen',
     },
     {
+      name: 'Goodreads',
       icon: FaGoodreads,
       url: 'https://www.goodreads.com/user/show/49531496-rafi-barash',
       color: 'ghostwhite',
     },
     {
+      name: 'Instagram',
       icon: FaInstagram,
       url: 'https://www.instagram.com/rafibarash/',
       color: 'lightpink',
     },
     {
+      name: 'Linkedin',
       icon: FaLinkedin,
       url: 'https://www.linkedin.com/in/rafi-barash/',
       color: 'skyblue',
@@ -95,6 +104,7 @@ const SocialMedia = ({ classes }) => {
             className={classes.icon}
             style={{ color: icon.color }}
             key={icon.url}
+            aria-label={icon.name}
           >
             {icon.icon()}
           </MuiLink>

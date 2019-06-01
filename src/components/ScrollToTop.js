@@ -40,6 +40,7 @@ const ScrollToTop = ({ classes }) => {
             spy
             smooth
             duration={700}
+            aria-label="Scroll to top button"
           >
             <KeyboardArrowUpIcon />
           </Fab>
