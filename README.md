@@ -2,13 +2,13 @@
 
 ## Tech Stack
 
-This web app is completely static and simply served through a CDN. It is based on the [JAMstack](https://jamstack.org/) architecture. For the frontend, I am using [Gatsby.js](https://www.gatsbyjs.org/), a blazing-fast static-site generator based on [React.js](https://reactjs.org/). This site sources most of its content through GraphQL queries to [Contentful](https://www.contentful.com/), a headless CMS with a very nice free tier. The site is built and deployed on (Netlify)[https://www.netlify.com/], an unreal all-in-one platform for automating web projects. Form management and all other backend functionality is powered through Netlify's extremely generous free tier.
+This web app is completely static and simply served through a CDN. It is based on the [JAMstack](https://jamstack.org/) architecture. For the frontend, I am using [Gatsby.js](https://www.gatsbyjs.org/), a blazing-fast static-site generator based on [React.js](https://reactjs.org/). This site sources most of its content through GraphQL queries to [Contentful](https://www.contentful.com/), a headless CMS with a very nice free tier. The site is built and deployed on [Netlify](https://www.netlify.com/), an unreal all-in-one platform for automating web projects. Form management and all other backend functionality is powered through Netlify's extremely generous free tier.
 
 ## Setup
 
 If you want to run this website on your local machine, follow these steps.
 
-1. Make sure you have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) installed.
+1. Make sure you have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/get-npm) installed. (_npm should come with the node.js installation_)
 
 1. Fork this repo by clicking the "Fork" button on the top right of your page.
 
