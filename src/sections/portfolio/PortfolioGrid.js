@@ -1,9 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { withStyles } from '@material-ui/styles';
-import {
- Grid, Typography, Container, Box 
-} from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 // My Components
 import MuiLink from '../../components/MuiLink';
