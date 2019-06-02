@@ -94,7 +94,7 @@ const SideMenu = ({ setOpen, classes }) => {
     { name: 'Impossible List', to: impossibleList.file.url },
     {
       name: 'Source Code',
-      to: 'https://github.com/rafibarash/rafibarash.github.io',
+      to: 'https://github.com/rafibarash/rafi-personal-website',
     },
   ];
   return (
