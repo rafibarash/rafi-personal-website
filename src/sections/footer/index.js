@@ -13,7 +13,7 @@ const Footer = ({ classes }) => (
     <Typography paragraph>
       Check out that
       {'  '}
-      <MuiLink href="https://github.com/rafibarash/rafibarash.github.io">
+      <MuiLink href="https://github.com/rafibarash/rafi-personal-website">
         source code
       </MuiLink>
     </Typography>
