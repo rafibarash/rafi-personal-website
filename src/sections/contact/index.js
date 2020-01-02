@@ -25,7 +25,7 @@ const Contact = ({ classes }) => {
           }
         }
       }
-    `,
+    `
   );
   const { contact } = data.contentfulHomePage.contact;
   return (
@@ -35,7 +35,7 @@ const Contact = ({ classes }) => {
       color="white"
       name="Contact"
     >
-      <SectionTitle color="inherit">Contact Rafi Barash</SectionTitle>
+      <SectionTitle color="inherit">Contact Rafael Barash</SectionTitle>
       <Typography paragraph color="inherit" className={classes.intro}>
         {contact}
       </Typography>

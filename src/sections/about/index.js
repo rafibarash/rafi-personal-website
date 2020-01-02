@@ -31,34 +31,6 @@ const styles = theme => ({
   },
 });
 
-/* <li class="nav-item mx-1">
-            <a href="https://github.com/rafibarash" target="_blank"
-              ><i class="fab fa-github-square fa-3x" style="color: white;"></i
-            ></a>
-          </li>
-          <li class="nav-item mx-1">
-            <a href="https://open.spotify.com/user/1215854478" target="_blank"
-              ><i class="fab fa-spotify fa-3x" style="color: lightgreen;"></i
-            ></a>
-          </li>
-          <li class="nav-item mx-1">
-            <a
-              href="https://www.goodreads.com/user/show/49531496-rafi-barash"
-              target="_blank"
-              ><i class="fab fa-goodreads fa-3x" style="color: ghostwhite;"></i
-            ></a>
-          </li>
-          <li class="nav-item mx-1">
-            <a href="https://www.instagram.com/rafibarash/" target="_blank"
-              ><i class="fab fa-instagram fa-3x" style="color: lightpink;"></i
-            ></a>
-          </li>
-          <li class="nav-item mx-1">
-            <a href="https://www.linkedin.com/in/rafi-barash/" target="_blank"
-              ><i class="fab fa-linkedin fa-3x" style="color: skyblue;"></i
-            ></a>
-          </li> */
-
 const SocialMedia = ({ classes }) => {
   const socialMedia = [
     {
@@ -125,7 +97,7 @@ const About = ({ classes }) => {
           }
         }
       }
-    `,
+    `
   );
   const { about } = data.contentfulHomePage.about;
   return (

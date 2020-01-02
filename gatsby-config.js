@@ -13,10 +13,10 @@ const contentfulConfig = {
 
 module.exports = {
   siteMetadata: {
-    title: 'Rafi Barash',
-    description: `My name is Rafi Barash and I'm a Junior majoring in Computer Science 
+    title: 'Rafael Barash',
+    description: `My name is Rafael Barash and I'm a Junior majoring in Computer Science 
       at the University of Minnesota, with a specialization in AI and Big Data.`,
-    author: 'Rafi Barash',
+    author: 'Rafael Barash',
     siteUrl: 'https://rafibarash.com',
   },
   plugins: [
@@ -58,8 +58,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Rafi Barash Personal Website',
-        short_name: 'Rafi',
+        name: 'Rafael Barash Personal Website',
+        short_name: 'Rafael',
         start_url: '/',
         background_color: '#6b37bf',
         theme_color: '#6b37bf',

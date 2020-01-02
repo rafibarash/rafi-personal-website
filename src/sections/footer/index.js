@@ -9,7 +9,7 @@ const styles = {};
 
 const Footer = ({ classes }) => (
   <Box py={10} textAlign="center">
-    <Typography paragraph>Built by Rafi Barash</Typography>
+    <Typography paragraph>Built by Rafael Barash</Typography>
     <Typography paragraph>
       Check out that
       {'  '}

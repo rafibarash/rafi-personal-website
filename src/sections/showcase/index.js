@@ -34,7 +34,7 @@ const WelcomeText = ({ classes }) => (
       strings={[
         "Hi, I'm a <strong>college student.</strong>",
         "Hi, I'm a <strong>developer.</strong>",
-        "Hi, I'm <strong>Rafi Barash.</strong>",
+        "Hi, I'm <strong>Rafael Barash.</strong>",
       ]}
       typeSpeed={33}
       backSpeed={25}

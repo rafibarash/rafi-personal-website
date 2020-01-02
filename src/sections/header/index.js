@@ -46,10 +46,10 @@ const styles = theme => ({
   },
 });
 
-const toggleDrawer = (setOpen, open) => (event) => {
+const toggleDrawer = (setOpen, open) => event => {
   if (
-    event.type === 'keydown'
-    && (event.key === 'Tab' || event.key === 'Shift')
+    event.type === 'keydown' &&
+    (event.key === 'Tab' || event.key === 'Shift')
   ) {
     return;
   }
@@ -79,7 +79,7 @@ const SideMenu = ({ setOpen, classes }) => {
           }
         }
       }
-    `,
+    `
   );
   const { impossibleList, resume, transcript } = data.contentfulHomePage;
   const relativeLinks = [
@@ -113,7 +113,7 @@ const SideMenu = ({ setOpen, classes }) => {
             smooth
             duration={700}
           >
-            <Typography variant="h5">Rafi Barash</Typography>
+            <Typography variant="h5">Rafael Barash</Typography>
           </ListItem>
           <Divider />
           {relativeLinks.map(link => (
