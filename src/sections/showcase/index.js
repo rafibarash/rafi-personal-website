@@ -1,70 +1,42 @@
-import React from 'react';
-import { Container, Box } from '@material-ui/core';
-import { withStyles } from '@material-ui/styles';
-import { Link, Element } from 'react-scroll';
-import Typed from 'react-typed';
+import React, { useRef, useState } from 'react';
+import { Canvas, useFrame } from 'react-three-fiber';
 
-// My Components
-import Button from '../../components/Button';
+function Box(props) {
+  // This reference will give us direct access to the mesh
+  const mesh = useRef();
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    height: '100vh',
-    minHeight: '100vh',
-    background: theme.palette.background.default,
-    padding: '8rem 0',
-    display: 'flex',
-  },
-  box: {
-    textAlign: 'center',
-    marginTop: 'auto',
-    marginBottom: 'auto',
-    width: '100%',
-  },
-  welcomeText: {
-    marginBottom: '3.5rem',
-    fontSize: '4rem',
-  },
-});
+  // Set up state for the hovered and active state
+  const [hovered, setHover] = useState(false);
+  const [active, setActive] = useState(false);
 
-const WelcomeText = ({ classes }) => (
-  <div className={classes.welcomeText}>
-    <Typed
-      strings={[
-        "Hi, I'm a <strong>college student.</strong>",
-        "Hi, I'm a <strong>developer.</strong>",
-        "Hi, I'm <strong>Rafael Barash.</strong>",
-      ]}
-      typeSpeed={33}
-      backSpeed={25}
-      backDelay={750}
-      showCursor
-      cursorChar="|"
-    />
-  </div>
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+
+  return (
+    <mesh
+      {...props}
+      ref={mesh}
+      scale={active ? [1.5, 1.5, 1.5] : [1, 1, 1]}
+      onClick={(e) => setActive(!active)}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
+    >
+      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <meshStandardMaterial
+        attach="material"
+        color={hovered ? 'hotpink' : 'orange'}
+      />
+    </mesh>
+  );
+}
+
+const Showcase = () => (
+  <Canvas>
+    <ambientLight />
+    <pointLight position={[10, 10, 10]} />
+    <Box position={[-1.2, 0, 0]} />
+    <Box position={[1.2, 0, 0]} />
+  </Canvas>
 );
 
-const Showcase = ({ classes }) => (
-  <Element name="Home" className={classes.root}>
-    <Box className={classes.box}>
-      <Container maxWidth="md">
-        <WelcomeText classes={classes} />
-        <Button
-          variant="contained"
-          color="primary"
-          component={Link}
-          to="About"
-          spy
-          smooth
-          // offset={-50}
-          duration={700}
-        >
-          About Me
-        </Button>
-      </Container>
-    </Box>
-  </Element>
-);
-
-export default withStyles(styles)(Showcase);
+export default Showcase;
