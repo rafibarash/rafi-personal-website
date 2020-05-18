@@ -7,7 +7,7 @@ import Typed from 'react-typed';
 // My Components
 import Button from '../../components/Button';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     width: '100%',
     height: '100vh',
