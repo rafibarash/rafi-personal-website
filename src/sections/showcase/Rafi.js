@@ -7,8 +7,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import lerp from 'lerp';
 import { getMouseDegrees } from './utils';
 
-// import * as stacyGlb from './stacy.glb';
-
 function moveJoint(mouse, joint, degreeLimit = 40) {
   let degrees = getMouseDegrees(mouse.current.x, mouse.current.y, degreeLimit);
   joint.rotation.xD = lerp(joint.rotation.xD || 0, degrees.y, 0.1);
@@ -22,17 +20,21 @@ export default function Model({ mouse, ...props }) {
   const { nodes, animations } = useLoader(GLTFLoader, '/stacy.glb');
   const texture = useLoader(THREE.TextureLoader, '/stacy.jpg');
 
+  const [curAnimation, setCurAnimation] = useState(8); // 8th is idle
+
   const actions = useRef();
   const [mixer] = useState(() => new THREE.AnimationMixer());
   useFrame((state, delta) => mixer.update(delta));
   useEffect(() => {
-    actions.current = { idle: mixer.clipAction(animations[8], group.current) };
+    actions.current = {
+      idle: mixer.clipAction(animations[curAnimation], group.current),
+    };
     actions.current.idle.play();
     return () => animations.forEach((clip) => mixer.uncacheClip(clip));
-  }, []);
+  }, [curAnimation]);
 
   useFrame((state, delta) => {
-    mixer.update(delta);
+    mixer.update(delta * 0.1);
     moveJoint(mouse, nodes.mixamorigNeck);
     moveJoint(mouse, nodes.mixamorigSpine);
   });
@@ -46,6 +48,11 @@ export default function Model({ mouse, ...props }) {
           skeleton={nodes['stacy'].skeleton}
           rotation={[-Math.PI / 2, 0, 0]}
           scale={[100, 100, 100]}
+          castShadow
+          receiveShadow
+          onClick={() => {
+            setCurAnimation((curAnimation + 1) % animations.length);
+          }}
         >
           <meshPhongMaterial
             attach="material"
