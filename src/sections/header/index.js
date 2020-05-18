@@ -17,7 +17,7 @@ import { Link } from 'react-scroll';
 // My Components
 import MuiLink from '../../components/MuiLink';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {},
   menu: {
     color: 'white',
@@ -46,7 +46,7 @@ const styles = theme => ({
   },
 });
 
-const toggleDrawer = (setOpen, open) => event => {
+const toggleDrawer = (setOpen, open) => (event) => {
   if (
     event.type === 'keydown' &&
     (event.key === 'Tab' || event.key === 'Shift')
@@ -116,7 +116,7 @@ const SideMenu = ({ setOpen, classes }) => {
             <Typography variant="h5">Rafael Barash</Typography>
           </ListItem>
           <Divider />
-          {relativeLinks.map(link => (
+          {relativeLinks.map((link) => (
             <ListItem
               component={Link}
               to={link.name}
@@ -130,7 +130,7 @@ const SideMenu = ({ setOpen, classes }) => {
             </ListItem>
           ))}
           <Divider />
-          {externalLinks.map(link => (
+          {externalLinks.map((link) => (
             <ListItem
               component={MuiLink}
               href={link.to}
@@ -152,7 +152,7 @@ const Header = ({ classes }) => {
     <div>
       <Zoom in style={{ transitionDelay: '500ms' }}>
         <Fab
-          onClick={() => setOpen(prevOpen => !prevOpen)}
+          onClick={() => setOpen((prevOpen) => !prevOpen)}
           className={classes.fab}
           aria-label="header button"
         >
