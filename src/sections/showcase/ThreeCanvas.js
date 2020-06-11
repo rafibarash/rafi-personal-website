@@ -64,7 +64,7 @@ const MyCanvas = () => {
 
   return (
     <Canvas
-      style={{ height: '100vh', width: '100%' }}
+      style={{ height: '100vh', width: '100%', position: 'absolute' }}
       onMouseMove={(e) => {
         mouse.current = getMousePos(e);
       }}
