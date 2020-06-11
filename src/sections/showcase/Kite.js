@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import React, { useEffect, useRef, useState } from 'react';
 import { useFrame } from 'react-three-fiber';
+import { useSphere, useSpring, usePlane, useBox } from 'use-cannon';
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -31,12 +32,35 @@ function Box(props) {
   );
 }
 
-const Kite = () => {
+const KiteAnimation = () => {
+  const [kiteRef] = useSphere(() => ({ mass: 1, position: [0, 5, 0] }));
+  const Kite = () => (
+    <mesh ref={kiteRef}>
+      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <meshStandardMaterial attach="material" color="orange" />
+    </mesh>
+  );
+
+  const [holdRef] = useSphere(() => ({ mass: 100, position: [-10, 0, 0] }));
+  const Hold = () => (
+    <mesh ref={holdRef}>
+      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <meshStandardMaterial attach="material" color="hotpink" />
+    </mesh>
+  );
+
+  useSpring(() => ({
+    bodyA: holdRef,
+    bodyB: kiteRef,
+    optns: { restLength: 1, stiffness: 100, damping: 10 },
+  }));
+
   return (
     <>
-      <Box />
+      <Kite />
+      <Hold />
     </>
   );
 };
 
-export default Kite;
+export default KiteAnimation;

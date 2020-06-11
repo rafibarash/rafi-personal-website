@@ -7,7 +7,7 @@ import Typed from 'react-typed';
 // My Components
 import Button from '../../components/Button';
 
-// const ThreeCanvas = React.lazy(() => import('./ThreeCanvas'));
+const ThreeCanvas = React.lazy(() => import('./ThreeCanvas'));
 
 const styles = (theme) => ({
   root: {

@@ -12720,14 +12720,6 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
-react-spring@^8.0.27:
-  version "8.0.27"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
-  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-    prop-types "^15.5.8"
-
 react-three-fiber@^4.2.4:
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/react-three-fiber/-/react-three-fiber-4.2.4.tgz#5693e0994c19bd17fe2a92b05b5ace4b85f3a9bc"
@@ -15531,6 +15523,11 @@ urql@^1.9.7:
   dependencies:
     "@urql/core" "^1.11.0"
     wonka "^4.0.9"
+
+use-cannon@^0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/use-cannon/-/use-cannon-0.4.7.tgz#ccbb8adaf01980f836137646b7af8d7124457392"
+  integrity sha512-6QpfBaq8Drn0dJte7BSWvHeC8i7pST4aCluZTkGpA2wVmMYUEt0ziAj+V9NgcE60SkcnSyU5hbpf7yEx/A/PUw==
 
 use@^3.1.0:
   version "3.1.1"

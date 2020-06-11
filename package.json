@@ -30,10 +30,10 @@
     "react-helmet": "^5.2.1",
     "react-icons": "^3.8.0",
     "react-scroll": "^1.7.15",
-    "react-spring": "^8.0.27",
     "react-three-fiber": "^4.2.4",
     "react-typed": "^1.2.0",
-    "three": "^0.116.1"
+    "three": "^0.116.1",
+    "use-cannon": "^0.4.7"
   },
   "scripts": {
     "develop": "gatsby develop",

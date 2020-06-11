@@ -2,7 +2,8 @@
 
 import React, { useRef } from 'react';
 import { Canvas } from 'react-three-fiber';
-import Kite from './Kite';
+import KiteAnimation from './Kite';
+import { Physics } from 'use-cannon';
 import { getMousePos } from './utils';
 
 const Lights = () => {
@@ -48,7 +49,10 @@ const MyCanvas = () => {
       camera={{ position: [0, 4, 18] }}
     >
       <Lights />
-      <Kite />
+
+      <Physics>
+        <KiteAnimation />
+      </Physics>
     </Canvas>
   );
 };
