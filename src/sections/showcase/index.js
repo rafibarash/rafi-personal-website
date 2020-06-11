@@ -1,12 +1,13 @@
-import React from 'react';
-import { Container, Box } from '@material-ui/core';
+import React, { Suspense } from 'react';
+import { Container, Box, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Link, Element } from 'react-scroll';
 import Typed from 'react-typed';
 
 // My Components
-import ThreeCanvas from './ThreeCanvas';
 import Button from '../../components/Button';
+
+// const ThreeCanvas = React.lazy(() => import('./ThreeCanvas'));
 
 const styles = (theme) => ({
   root: {
@@ -16,16 +17,18 @@ const styles = (theme) => ({
     background: theme.palette.background.default,
     padding: '8rem 0',
     display: 'flex',
+    textAlign: 'center',
   },
   box: {
-    textAlign: 'center',
     marginTop: 'auto',
     marginBottom: 'auto',
     width: '100%',
   },
   welcomeText: {
-    marginBottom: '3.5rem',
-    fontSize: '4rem',
+    marginBottom: '2rem',
+    fontSize: '2rem',
+    minHeight: '100px',
+    // textAlign: 'left',
   },
 });
 
@@ -33,13 +36,18 @@ const WelcomeText = ({ classes }) => (
   <div className={classes.welcomeText}>
     <Typed
       strings={[
-        "Hi, I'm a <strong>college student.</strong>",
-        "Hi, I'm a <strong>developer.</strong>",
-        "Hi, I'm <strong>Rafael Barash.</strong>",
+        'Hi there!',
+        "I'm a software engineer.",
+        "I'm a web developer.",
+        "I'm a new grad.",
+        "I'm an adventurer.",
+        "I'm a tennis/basketball player.",
+        "I'm a hip-hip/rap lover.",
+        'Welcome to my website!',
       ]}
       typeSpeed={33}
       backSpeed={25}
-      backDelay={750}
+      backDelay={1000}
       showCursor
       cursorChar="|"
     />
@@ -47,25 +55,35 @@ const WelcomeText = ({ classes }) => (
 );
 
 const Showcase = ({ classes }) => (
-  <Element name="Home" className={classes.root}>
-    <ThreeCanvas />
-    <Box className={classes.box}>
-      <Container maxWidth="md">
-        <WelcomeText classes={classes} />
-        <Button
-          variant="contained"
-          color="primary"
-          component={Link}
-          to="About"
-          spy
-          smooth
-          // offset={-50}
-          duration={700}
-        >
-          About Me
-        </Button>
-      </Container>
-    </Box>
+  <Element name="Home">
+    {/* Three.js stuff */}
+    {/* <Suspense fallback={null}>
+      <ThreeCanvas />
+    </Suspense> */}
+
+    <div className={classes.root}>
+      <Box className={classes.box}>
+        <Container maxWidth="md">
+          {/* My introduction */}
+          <Typography variant="h1" style={{ marginBottom: '25px' }}>
+            Rafi Barash
+          </Typography>
+          <WelcomeText classes={classes} />
+          <Button
+            variant="contained"
+            color="primary"
+            component={Link}
+            to="About"
+            spy
+            smooth
+            // offset={-50}
+            duration={700}
+          >
+            About Me
+          </Button>
+        </Container>
+      </Box>
+    </div>
   </Element>
 );
 

@@ -1,23 +1,9 @@
 // Heavily based off https://codesandbox.io/embed/r3f-bones-3i7iu
 
-import React, { useRef, Suspense, useState } from 'react';
+import React, { useRef } from 'react';
 import { Canvas } from 'react-three-fiber';
-import Rafi from './Rafi';
+import Kite from './Kite';
 import { getMousePos } from './utils';
-
-const Floor = (props) => {
-  return (
-    <mesh {...props} receiveShadow>
-      <planeGeometry attach="geometry" args={[5000, 5000, 1, 1]} />
-      <meshLambertMaterial
-        attach="material"
-        color="#9b9b9b"
-        transparent
-        opacity={0.2}
-      />
-    </mesh>
-  );
-};
 
 const Lights = () => {
   const d = 8.25;
@@ -48,17 +34,6 @@ const Lights = () => {
   );
 };
 
-const RafiModel = ({ mouse }) => {
-  return (
-    <>
-      <Floor rotation={[-0.5 * Math.PI, 0, 0]} position={[0, -5, 0]} />
-      <Suspense fallback={null}>
-        <Rafi mouse={mouse} position={[0, -5, 0]} scale={[7, 7, 7]} />
-      </Suspense>
-    </>
-  );
-};
-
 const MyCanvas = () => {
   const mouse = useRef({ x: 0, y: 0 });
 
@@ -73,7 +48,7 @@ const MyCanvas = () => {
       camera={{ position: [0, 4, 18] }}
     >
       <Lights />
-      <RafiModel mouse={mouse} />
+      <Kite />
     </Canvas>
   );
 };
