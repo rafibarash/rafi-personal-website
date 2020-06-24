@@ -8,7 +8,7 @@ import Section from '../../components/Section';
 import SectionTitle from '../../components/SectionTitle';
 import ContactForm from './ContactForm';
 
-const styles = theme => ({
+const styles = (theme) => ({
   intro: {
     paddingBottom: '25px',
   },
@@ -35,7 +35,7 @@ const Contact = ({ classes }) => {
       color="white"
       name="Contact"
     >
-      <SectionTitle color="inherit">Contact Rafael Barash</SectionTitle>
+      <SectionTitle color="inherit">HMU</SectionTitle>
       <Typography paragraph color="inherit" className={classes.intro}>
         {contact}
       </Typography>
