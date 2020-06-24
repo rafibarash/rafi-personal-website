@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Container, Box, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
 import { Link, Element } from 'react-scroll';
@@ -6,8 +6,6 @@ import Typed from 'react-typed';
 
 // My Components
 import Button from '../../components/Button';
-
-const ThreeCanvas = React.lazy(() => import('./ThreeCanvas'));
 
 const styles = (theme) => ({
   root: {
@@ -40,8 +38,8 @@ const WelcomeText = ({ classes }) => (
         "I'm a software engineer.",
         "I'm a web developer.",
         "I'm a new grad.",
-        "I'm an adventurer.",
         "I'm a tennis/basketball player.",
+        "I'm a slackliner.",
         "I'm a hip-hip/rap lover.",
         'Welcome to my website!',
       ]}
@@ -56,11 +54,6 @@ const WelcomeText = ({ classes }) => (
 
 const Showcase = ({ classes }) => (
   <Element name="Home">
-    {/* Three.js stuff */}
-    {/* <Suspense fallback={null}>
-      <ThreeCanvas />
-    </Suspense> */}
-
     <div className={classes.root}>
       <Box className={classes.box}>
         <Container maxWidth="md">
