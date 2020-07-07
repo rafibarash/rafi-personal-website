@@ -23,7 +23,7 @@
     "gatsby-transformer-remark": "^2.6.45",
     "gatsby-transformer-sharp": "^2.3.9",
     "i": "^0.3.6",
-    "npm": "^6.13.4",
+    "npm": "^6.14.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
