@@ -22,7 +22,7 @@
     "gatsby-source-contentful": "^2.1.73",
     "gatsby-transformer-remark": "^2.6.45",
     "gatsby-transformer-sharp": "^2.3.9",
-    "i": "^0.3.6",
+    "i": "^0.3.7",
     "npm": "^6.13.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
