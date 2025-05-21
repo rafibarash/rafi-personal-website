@@ -37,9 +37,8 @@ const WelcomeText = ({ classes }) => (
         'Hi there!',
         "I'm a software engineer.",
         "I'm a web developer.",
-        "I'm a new grad.",
         "I'm a tennis/basketball player.",
-        "I'm a slackliner.",
+        "I'm a snowboarder.",
         "I'm a hip-hip/rap lover.",
         'Welcome to my website!',
       ]}

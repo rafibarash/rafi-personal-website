@@ -26,6 +26,15 @@ const Footer = ({ classes }) => (
       {'  '}
       <MuiLink href="https://rafibarash.github.io/v1">v1</MuiLink>
     </Typography>
+    <Typography>
+      Shoutout
+      {'  '}
+      <MuiLink href="https://startbootstrap.com/themes/portfolio-resume">
+       Start Bootstrap
+      </MuiLink>
+      {'  '}
+       with the theme inspiration
+    </Typography>
   </Box>
 );
 
