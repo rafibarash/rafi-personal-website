@@ -19,9 +19,9 @@ If you want to run this website on your local machine, follow these steps.
    ```sh
    git clone <your repo link>  # Clones repo to your local machine, use link you copied
 
-   npm install  # Installs necessary dependencies stated in package.json
+   yarn install  # Installs necessary dependencies stated in package.json
 
-   npm run start  # Starts a development server serving the local repo
+   yarn start  # Starts a development server serving the local repo
    ```
 
 1. That's it! Feel free to mess around with the code and use it in your own project. A shoutout would be nice :)
